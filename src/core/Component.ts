@@ -13,8 +13,8 @@ export class BaseComponent<T extends HTMLElement, S = void> implements Component
   constructor(element: T) {
     this.$target = element;
     this.setup();
-    // this.render();
-    // this.setEvent();
+    this.render();
+    this.setEvent();
   }
 
   setup() { }

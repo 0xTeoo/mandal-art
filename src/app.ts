@@ -10,7 +10,7 @@ class App extends BaseComponent<HTMLElement> {
           <h1 class="header-title">MANDAL_ART</h1>
           <p class="header-description">꿈과 목표를 시각화하여 실현에 이르게 하는 첫 걸음, </br>당신만의 맞춤형 만다라트 계획표로 일상에 변화를 주세요.</p>
         </section>
-        <aside>
+        <aside data-html2canvas-ignore="true">
           <ul class="header-button-list">
             <li>
               <button class="image-download-button">
@@ -28,7 +28,7 @@ class App extends BaseComponent<HTMLElement> {
   }
 
   setEvent() {
-    const $body = document.querySelector("body")! as HTMLElement;
+    const $body = document.querySelector("body")!;
     const imageDownloadButton = document.querySelector(".image-download-button")! as HTMLButtonElement;
 
     imageDownloadButton.addEventListener("click", () => {

@@ -3,6 +3,9 @@ $gray-scale-01: #f8f8f8;
 $gray-scale-02: #f2f2f2;
 $gray-scale-03: #ebebeb;
 $gray-scale-04: #d6d6d6;
+$gray-scale-05: #545454;
+$gray-scale-06: #313131;
+$gray-scale-07: #292929;
 
 * {
   outline: 0;
@@ -10,10 +13,10 @@ $gray-scale-04: #d6d6d6;
 }
 
 body {
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
   background-color: $white;
 }
 
@@ -47,12 +50,13 @@ input {
   font-family: sans-serif;
 }
 
-.header-button-list {
+.aside-list {
+  display: flex;
   padding: 10px 0;
   list-style-type: none;
 }
 
-.image-download-button {
+.aside-list button {
   width: 40px;
   background-color: $white;
   border: none;
@@ -128,15 +132,20 @@ input {
 .idea-textarea {
   width: 100%;
   background: none;
-  padding: 10px;
   border: none;
   text-align: center;
   resize: none;
   overflow: hidden;
+  color: $gray-scale-05;
   font-size: 16px;
   font-weight: 500;
-  color: gray;
   font-family: sans-serif;
+}
+
+.goal.final >.idea.main {
+  textarea {
+    color: $gray-scale-07;
+  }
 }
 
 .footer {

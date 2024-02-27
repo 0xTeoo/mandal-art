@@ -4,7 +4,7 @@ const CENTRAL_INDEX = 4;
 const FINAL_GOAL_PLACEHOLDER = "최종 목표";
 const SUB_GOAL_PLACEHOLDER = "목표"
 
-type Goal = {
+export type Goal = {
   id: number;
   type: "final" | "sub";
   ideas: Idea[];
@@ -20,16 +20,26 @@ type GoalListState = {
   goals: Goal[]
 }
 
-export class GoalList extends BaseComponent<HTMLElement, GoalListState> {
+type GoalListProps = {
+  goals: Goal[]
+}
+
+export class GoalList extends BaseComponent<HTMLElement, GoalListState, GoalListProps> {
+  constructor($target: HTMLElement, props: GoalListProps) {
+    super($target, props)
+  }
+
   async setup() {
+    const { goals } = this.props;
+
     this.state = {
-      goals: Array(9).fill(null).map((_, idx) => {
+      goals: goals ? goals : Array(9).fill(null).map((_, idx) => {
         return {
           id: idx,
           ideas: this.getInitialIdeas(),
           type: idx === CENTRAL_INDEX ? "final" : "sub"
         }
-      })
+      }),
     }
   }
 

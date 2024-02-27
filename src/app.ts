@@ -1,6 +1,9 @@
 import html2canvas from 'html2canvas';
 import { BaseComponent } from './core/Component';
 import { GoalList } from './components/GoalList';
+import { getGoalsByUserId } from './api/getGoalsByUserId';
+
+export const MY_USER_ID = "2ZERQRUJZ4fUoI7Gm9LX00aMWub2";
 
 class App extends BaseComponent<HTMLElement> {
   template() {
@@ -11,7 +14,7 @@ class App extends BaseComponent<HTMLElement> {
           <p class="header-description">꿈과 목표를 시각화하여 실현에 이르게 하는 첫 걸음, </br>당신만의 맞춤형 만다라트 계획표로 일상에 변화를 주세요.</p>
         </section>
         <aside data-html2canvas-ignore="true">
-          <ul class="header-button-list">
+          <ul class="aside-list">
             <li>
               <button class="image-download-button">
                 <img src="./assets/download.svg" width="24" height="24" />
@@ -44,7 +47,12 @@ class App extends BaseComponent<HTMLElement> {
 
   async mounted() {
     const $goalSection = this.$target.querySelector('.goal-section')! as HTMLElement;
-    new GoalList($goalSection);
+
+    const goals = await getGoalsByUserId(MY_USER_ID)
+
+    if (goals) {
+      new GoalList($goalSection, { goals: goals });
+    }
   }
 }
 

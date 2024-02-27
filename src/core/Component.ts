@@ -6,12 +6,18 @@ interface Component<S> {
   mounted: () => void;
 }
 
-export class BaseComponent<T extends HTMLElement, S = void> implements Component<S> {
+export class BaseComponent<T extends HTMLElement, S = {}, P = {}> implements Component<S> {
   $target: T;
-  state: S;
+  state: Readonly<S>;
+  props: Readonly<P>;
 
-  constructor(element: T) {
+  constructor(element: T, props?: Readonly<P>) {
     this.$target = element;
+
+    if (props) {
+      this.props = props;
+    }
+
     this.setup();
     this.render();
     this.setEvent();
@@ -28,7 +34,8 @@ export class BaseComponent<T extends HTMLElement, S = void> implements Component
     this.mounted();
   }
 
-  setEvent() { }
+  setEvent() {
+  }
 
   setState(newState: S) {
     this.state = { ...this.state, ...newState };

@@ -1,15 +1,14 @@
 import html2canvas from 'html2canvas';
 import { BaseComponent } from './core/Component';
 import { GoalList } from './components/GoalList';
-import { getGoalsByUserId } from './api/getGoalsByUserId';
-import { GoogleAuthProvider, getRedirectResult, signInWithRedirect } from 'firebase/auth';
+import { signInWithRedirect } from 'firebase/auth';
 import { auth, provider } from '../firebase';
 import { SignInModal } from './components/SignInModal';
 
 export const MY_USER_ID = "2ZERQRUJZ4fUoI7Gm9LX00aMWub2";
 
 const HEADER_TITLE = "MANDAL_ART"
-const HEADER_DESCRIPTION = "꿈과 목표를 시각화하여 실현에 이르게 하는 첫 걸음, </br>당신만의 맞춤형 만다라트 계획표로 일상에 변화를 주세요."
+const HEADER_DESCRIPTION = "Visualize Your Dream and Goals.</br>Make your day better with your Mandala chart for your dream."
 const FOOTER_DESCRIPTION = "Copyright 2024. @Moon All rights reserved"
 
 class App extends BaseComponent<HTMLElement, { isModalOpen: boolean, isLogin: boolean }> {
@@ -27,11 +26,6 @@ class App extends BaseComponent<HTMLElement, { isModalOpen: boolean, isLogin: bo
             <li>
               <button class="image-download-button">
                 <img src="./assets/download.svg" width="24" height="24" />
-              </button>
-            </li>
-            <li>
-              <button class="data-save-button ${this.state.isLogin ? null : "disabled"}">
-                <img src="./assets/save.svg" width="24" height="24" />
               </button>
             </li>
           </ul>
@@ -55,39 +49,41 @@ class App extends BaseComponent<HTMLElement, { isModalOpen: boolean, isLogin: bo
 
   setEvent() {
     const imageDownloadButton = document.querySelector(".image-download-button")! as HTMLButtonElement;
-    const dataSaveButton = document.querySelector(".data-save-button")!
 
     imageDownloadButton.addEventListener("click", () => {
       this.handleImageDownloadButtonClick();
     });
 
-    dataSaveButton.addEventListener('click', () => {
-      this.handleDataSaveButtonClick();
-    })
+    // TODO: Login need to be implemented
+    // const dataSaveButton = document.querySelector(".data-save-button")!
+
+    // dataSaveButton.addEventListener('click', () => {
+    //   this.handleDataSaveButtonClick();
+    // })
   }
 
   async mounted() {
     const goalSection = this.$target.querySelector('.goal-section')! as HTMLElement;
-    const goals = await getGoalsByUserId(MY_USER_ID)
-    new GoalList(goalSection, { goals: goals ?? [] });
+    new GoalList(goalSection, { goals: [] });
 
     if (this.state.isModalOpen) {
       const modal = document.querySelector(".modal")! as HTMLElement;
       new SignInModal(modal, { onClose: this.closeModal.bind(this), onClickGoogleButton: this.signInGoogle.bind(this) });
     }
 
-    try {
-      const authResult = await getRedirectResult(auth);
+    // TODO: Login need to be implemented
+    // try {
+    //   const authResult = await getRedirectResult(auth);
 
-      if (authResult) {
-        const credential = GoogleAuthProvider.credentialFromResult(authResult)!;
-        const token = credential.accessToken;
-        const user = authResult.user;
-        this.setState({ ...this.state, isLogin: true });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    //   if (authResult) {
+    //     const credential = GoogleAuthProvider.credentialFromResult(authResult)!;
+    //     const token = credential.accessToken;
+    //     const user = authResult.user;
+    //     this.setState({ ...this.state, isLogin: true });
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
   }
 
   handleImageDownloadButtonClick() {
@@ -102,7 +98,7 @@ class App extends BaseComponent<HTMLElement, { isModalOpen: boolean, isLogin: bo
 
   handleDataSaveButtonClick() {
     if (this.state.isLogin) {
-      // Forestore 데이터 저장 로직 실행
+      // TODO: Save data to firebase
     } else {
       this.setState({ ...this.state, isModalOpen: true })
       this.$body.classList.add("modal-open");

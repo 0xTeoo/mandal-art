@@ -1,8 +1,8 @@
 import { BaseComponent } from '../core/Component';
 
 const CENTRAL_INDEX = 4;
-const FINAL_GOAL_PLACEHOLDER = "최종 목표";
-const SUB_GOAL_PLACEHOLDER = "목표"
+const FINAL_GOAL_PLACEHOLDER = "Final Goal";
+const SUB_GOAL_PLACEHOLDER = "Goal";
 
 export type Goal = {
   id: number;

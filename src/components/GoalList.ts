@@ -33,7 +33,7 @@ export class GoalList extends BaseComponent<HTMLElement, GoalListState, GoalList
     const { goals } = this.props;
 
     this.state = {
-      goals: goals ? goals : Array(9).fill(null).map((_, idx) => {
+      goals: goals.length > 0 ? goals : Array(9).fill(null).map((_, idx) => {
         return {
           id: idx,
           ideas: this.getInitialIdeas(),

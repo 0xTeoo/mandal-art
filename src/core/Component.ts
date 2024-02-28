@@ -1,4 +1,4 @@
-interface Component<S> {
+export interface Component<S = {}> {
   setup: () => void;
   template: () => string;
   setEvent: () => void;
@@ -6,12 +6,12 @@ interface Component<S> {
   mounted: () => void;
 }
 
-export class BaseComponent<T extends HTMLElement, S = {}, P = {}> implements Component<S> {
+export abstract class BaseComponent<T extends HTMLElement, S = {}, P = {}> implements Component<S> {
   $target: T;
   state: Readonly<S>;
   props: Readonly<P>;
 
-  constructor(element: T, props?: Readonly<P>) {
+  constructor(element: T, props: Readonly<P>) {
     this.$target = element;
 
     if (props) {

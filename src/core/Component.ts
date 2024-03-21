@@ -11,8 +11,8 @@ export abstract class BaseComponent<T extends HTMLElement, S = {}, P = {}> imple
   state: Readonly<S>;
   props: Readonly<P>;
 
-  constructor(element: T, props: Readonly<P>) {
-    this.$target = element;
+  constructor($target: T, props: Readonly<P>) {
+    this.$target = $target;
     this.props = props;
 
     this.setup();
@@ -78,6 +78,7 @@ function updateElement(parent, newNode, oldNode) {
   }
 }
 
+// TODO: Refactoring needed
 // @ts-ignore
 function updateAttributes(oldNode, newNode) {
   for (const { name, value } of [...newNode.attributes]) {

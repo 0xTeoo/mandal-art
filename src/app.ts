@@ -6,9 +6,8 @@ export const MY_USER_ID = "2ZERQRUJZ4fUoI7Gm9LX00aMWub2";
 
 const HEADER_TITLE = "MANDAL_ART"
 const HEADER_DESCRIPTION = "꿈과 목표를 시각화하여 실현에 이르게 하는 첫 걸음, </br>당신만의 맞춤형 만다라트 계획표로 일상에 변화를 주세요."
-const FOOTER_DESCRIPTION = "Copyright 2024. @Moon All rights reserved"
 
-class App extends BaseComponent<HTMLElement> {
+class App extends BaseComponent<HTMLElement>{
   private $body = document.querySelector("body")!;
 
   template() {
@@ -30,7 +29,11 @@ class App extends BaseComponent<HTMLElement> {
       </header>
       <main class="goal-section"></main>
       <footer class="footer">
-        <p class="footer-description">${FOOTER_DESCRIPTION}</p>
+        <p class="footer-description">
+          Copyright 2024. 
+          <a href="https://github.com/mooncastlestone" target="_blank" class="github-link">@mooncastlestone</a>
+          All rights reserved
+        </p>
       </footer>
     `
   }

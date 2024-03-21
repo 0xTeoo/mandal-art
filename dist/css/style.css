@@ -1,0 +1,245 @@
+/*!***************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/main.scss ***!
+  \***************************************************************************************************************/
+* {
+  outline: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  background-color: #ffffff;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+input {
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 50px 10px 20px 10px;
+}
+@media (max-width: 640px) {
+  .header {
+    padding: 7.8125vw 1.5625vw 3.125vw 1.5625vw;
+  }
+}
+@media (min-width: 1024px) {
+  .header {
+    padding: 50px 0 20px 0;
+  }
+}
+
+.header-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 30px;
+  color: #545454;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+@media (min-width: 1024px) {
+  .header-title {
+    font-size: 50px;
+  }
+}
+
+.header-description {
+  font-size: 12px;
+  line-height: 25px;
+  max-width: 550px;
+}
+@media (max-width: 640px) {
+  .header-description {
+    line-height: 3.90625vw;
+  }
+}
+@media (max-width: 640px) {
+  .header-description {
+    max-width: 85.9375vw;
+  }
+}
+@media (min-width: 1024px) {
+  .header-description {
+    font-size: 16px;
+  }
+}
+
+.aside-list {
+  display: flex;
+  list-style-type: none;
+  padding: 10px 0;
+}
+@media (max-width: 640px) {
+  .aside-list {
+    padding: 1.5625vw 0;
+  }
+}
+
+.image-download-button {
+  width: 40px;
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.image-download-button img {
+  width: 100%;
+  height: 100%;
+}
+
+.goal-section {
+  padding: 0 10px;
+}
+@media (max-width: 640px) {
+  .goal-section {
+    padding: 0 1.5625vw;
+  }
+}
+@media (min-width: 1024px) {
+  .goal-section {
+    max-width: 1000px;
+    padding: 0;
+  }
+}
+
+.goal-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 100%;
+  gap: 5px;
+}
+@media (max-width: 640px) {
+  .goal-list {
+    gap: 0.78125vw;
+  }
+}
+
+.goal {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  aspect-ratio: 1/1;
+  gap: 5px;
+}
+@media (max-width: 640px) {
+  .goal {
+    gap: 0.78125vw;
+  }
+}
+
+.goal.disabled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 7px;
+}
+
+.idea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f8f8;
+  border-radius: 7px;
+}
+
+.goal.final > .idea.main {
+  background-color: #ebebeb;
+  border-style: solid;
+  border-color: #d6d6d6;
+  border-width: 2px;
+}
+@media (max-width: 640px) {
+  .goal.final > .idea.main {
+    border-width: 0.3125vw;
+  }
+}
+
+.goal.final > .idea.sub:nth-child(1), .goal.final > .idea.sub:nth-child(3), .goal.final > .idea.sub:nth-child(7), .goal.final > .idea.sub:nth-child(9) {
+  background-color: #f2f2f2;
+}
+.goal.final > .idea.sub:nth-child(2), .goal.final > .idea.sub:nth-child(4), .goal.final > .idea.sub:nth-child(6), .goal.final > .idea.sub:nth-child(8) {
+  background-color: #f2f2f2;
+}
+
+.goal.sub > .idea.main {
+  background-color: #f2f2f2;
+  pointer-events: none;
+}
+
+.idea-textarea {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: center;
+  resize: none;
+  overflow: hidden;
+  color: #545454;
+  font-weight: 500;
+  font-size: 10px;
+}
+@media (max-width: 640px) {
+  .idea-textarea {
+    font-size: 1.5625vw;
+  }
+}
+@media (min-width: 1024px) {
+  .idea-textarea {
+    font-size: 14px;
+  }
+}
+
+.goal.final > .idea.main textarea {
+  color: #292929;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+}
+@media (max-width: 640px) {
+  .footer {
+    padding: 7.8125vw 0;
+  }
+}
+
+.footer-description {
+  color: grey;
+  font-size: 15px;
+}
+@media (max-width: 640px) {
+  .footer-description {
+    font-size: 2.34375vw;
+  }
+}
+
+.github-link {
+  color: grey;
+}
+
+/*# sourceMappingURL=style.css.map*/

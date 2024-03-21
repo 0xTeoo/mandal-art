@@ -1,6 +1,7 @@
 import html2canvas from 'html2canvas';
 import { BaseComponent } from './core/Component';
 import { GoalList } from './components/GoalList';
+import downloadIcon from './images/download.svg';
 
 export const MY_USER_ID = "2ZERQRUJZ4fUoI7Gm9LX00aMWub2";
 
@@ -21,7 +22,7 @@ class App extends BaseComponent<HTMLElement>{
           <ul class="aside-list">
             <li>
               <button class="image-download-button">
-                <img src="./assets/download.svg" width="24" height="24" />
+                <img src="${downloadIcon}" width="24" height="24" />
               </button>
             </li>
           </ul>

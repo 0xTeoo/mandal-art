@@ -13,10 +13,7 @@ export abstract class BaseComponent<T extends HTMLElement, S = {}, P = {}> imple
 
   constructor(element: T, props: Readonly<P>) {
     this.$target = element;
-
-    if (props) {
-      this.props = props;
-    }
+    this.props = props;
 
     this.setup();
     this.render();
@@ -54,6 +51,7 @@ export abstract class BaseComponent<T extends HTMLElement, S = {}, P = {}> imple
 
   mounted() { }
 }
+
 // TODO: Refactoring needed
 // @ts-ignore
 function updateElement(parent, newNode, oldNode) {

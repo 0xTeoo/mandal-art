@@ -4,6 +4,7 @@
 * {
   outline: 0;
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
@@ -39,22 +40,28 @@ input {
   }
 }
 
+.header-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .header-title {
   margin: 0;
-  font-size: 35px;  
+  font-size: 30px;
   color: #545454;
+  font-family: Georgia, "Times New Roman", Times, serif;
 
   @include desktop() {
-    font-size: 50px;
+    font-size: 40px;
   }
 }
 
 .header-description {
   font-size: 12px;
-  font-family: sans-serif;
   @include scale(line-height, 25px);
   @include scale(max-width, 550px);
-  
+
   @include desktop() {
     font-size: 16px;
   }
@@ -66,7 +73,7 @@ input {
   @include scale(padding, 10px 0px);
 }
 
-.aside-list button {
+.image-download-button {
   width: 40px;
   background-color: $white;
   border: none;
@@ -75,13 +82,6 @@ input {
   img {
     width: 100%;
     height: 100%;
-  }
-}
-
-.data-save-button {
-  opacity: 1;
-  &.disabled {
-    opacity: 0.3;
   }
 }
 
@@ -113,7 +113,7 @@ input {
 
 .goal.disabled {
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -140,12 +140,18 @@ input {
   @include scale(border-width, 2px);
 }
 
-.goal.final > .idea.sub { 
-  &:nth-child(1), &:nth-child(3), &:nth-child(7), &:nth-child(9) {
+.goal.final > .idea.sub {
+  &:nth-child(1),
+  &:nth-child(3),
+  &:nth-child(7),
+  &:nth-child(9) {
     background-color: $gray-scale-02;
   }
-  
-  &:nth-child(2), &:nth-child(4), &:nth-child(6), &:nth-child(8) {
+
+  &:nth-child(2),
+  &:nth-child(4),
+  &:nth-child(6),
+  &:nth-child(8) {
     background-color: $gray-scale-02;
   }
 }
@@ -163,15 +169,14 @@ input {
   overflow: hidden;
   color: $gray-scale-05;
   font-weight: 500;
-  font-family: sans-serif;
   @include scale(font-size, 10px);
-  
+
   @include desktop() {
     font-size: 14px;
   }
 }
 
-.goal.final >.idea.main {
+.goal.final > .idea.main {
   textarea {
     color: $gray-scale-07;
   }
@@ -185,95 +190,6 @@ input {
 }
 
 .footer-description {
-  font-family: sans-serif;
   color: grey;
   @include scale(font-size, 14px);
 }
-
-// TODO: 로그인 기능 추가 때 사용할 예정
-// // Modal
-// .modal {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     width: 100%;
-//     height: 100%;
-//     background-color: $white;
-//     opacity: 0.9;
-//   }
-// }
-
-// .modal-close-button {
-//   position: absolute;
-//   top: 10px;
-//   right: 10px;
-//   width: 20px;
-//   height: 20px;
-//   padding: 0;
-//   border: none;
-//   background-color: $white;
-//   cursor: pointer;
-  
-//   img {
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
-
-// .login-modal-inner {
-//   position: relative;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: column;
-//   width: 400px;
-//   gap: 30px;
-//   z-index: 1;
-//   padding: 30px;
-//   border-radius: 10px;
-//   background-color: white;
-//   box-shadow: 0 4px 16px 0 rgba(0,0,0,.12)
-// }
-
-// .login-modal-title {
-//   @include scale(font-size, 22px);
-  
-//   font-family: sans-serif;
-//   margin: 0;
-//   color: $gray-scale-06;
-// }
-
-// .google-button {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   position: relative;
-//   gap: 10px;
-//   width: 100%;
-//   padding: 18px 14px;
-//   border: 1px solid $gray-scale-04;
-//   border-radius: 8px;
-//   background-color: $white;
-//   color: $gray-scale-07;
-//   cursor: pointer;
-// }
-
-// .google-button-text {
-//   @include scale(font-size, 14px);
-//   color: $gray-scale-05
-// }
-
-// .google-icon {
-//   position: absolute;
-//   left: 10px;
-//   width: 26px;
-// }

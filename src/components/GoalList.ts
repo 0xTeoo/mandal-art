@@ -1,19 +1,8 @@
 import { BaseComponent } from '../core/Component';
-import { GoalListItem } from './GoalListItem';
+import { Goal, Idea } from '../utils/types';
+import { GoalListItem } from '../components/GoalListItem';
 
 const CENTRAL_INDEX = 4;
-
-export type Goal = {
-  id: number;
-  type: "final" | "sub";
-  ideas: Idea[];
-}
-
-export type Idea = {
-  id: number;
-  type: "main" | "sub";
-  name: string | null;
-}
 
 type GoalListState = {
   goals: Goal[]

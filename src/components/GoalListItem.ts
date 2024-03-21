@@ -1,8 +1,6 @@
 import { BaseComponent } from '../core/Component';
-import { Goal, Idea } from './GoalList';
-
-const FINAL_GOAL_PLACEHOLDER = "최종 목표";
-const SUB_GOAL_PLACEHOLDER = "목표";
+import { FINAL_GOAL_PLACEHOLDER, SUB_GOAL_PLACEHOLDER } from '../utils/constants';
+import { Goal, Idea } from '../utils/types';
 
 type GoalListItemProps = Goal & {
   title: string;

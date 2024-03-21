@@ -4,6 +4,7 @@ import { Goal, Idea } from '../utils/types';
 
 type GoalListItemProps = Goal & {
   title: string;
+  disabled: boolean;
 }
 
 export class GoalListItem extends BaseComponent<HTMLElement, {}, GoalListItemProps> {
@@ -11,8 +12,16 @@ export class GoalListItem extends BaseComponent<HTMLElement, {}, GoalListItemPro
     super($target, props)
   }
 
+  setup() {
+    const { type, disabled } = this.props;
+
+    if (disabled && type === "sub") {
+      this.$target.classList.add("disabled");
+    }
+  }
+
   template() {
-    const { ideas, type } = this.props;
+    const { ideas, type, disabled } = this.props;
 
     return `
       ${ideas.map((idea) => `
@@ -21,7 +30,7 @@ export class GoalListItem extends BaseComponent<HTMLElement, {}, GoalListItemPro
             class="idea-textarea"
             maxlength="20"
             placeholder="${this.getTextareaPlaceholder(idea)}"
-            ` + ((type === "sub" && idea.type === "main") ? "disabled" : "") + `
+            ` + ((disabled && type === "sub") ? "disabled" : "") + `
             >${this.getTextareaValue(idea)}</textarea>
         </div>
       `).join("")}

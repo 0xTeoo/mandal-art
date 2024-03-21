@@ -34,16 +34,11 @@ export class GoalList extends BaseComponent<HTMLElement, GoalListState, GoalList
   template() {
     const { goals } = this.state;
     return `
-    <ul class="goal-list">
-      ${goals.map((goal) => {
-      const ideasWithValue = goal.ideas.filter(idea => {
-        return idea.name || this.finalGoal.ideas[goal.id].name;
-      })
-      const isEmptyGoal = ideasWithValue.length === 0;
-
-      return `<li class="goal ${goal.type} ${(isEmptyGoal && goal.type === "sub") ? "disabled" : ''}" data-goal-id="${goal.id}"></li>`
+      <ul class="goal-list">
+        ${goals.map((goal) => {
+      return `<li class="goal ${goal.type}" data-goal-id="${goal.id}"></li>`
     }).join("")}
-    </ul>
+      </ul>
     `
   }
 
@@ -66,10 +61,21 @@ export class GoalList extends BaseComponent<HTMLElement, GoalListState, GoalList
   mounted() {
     const $goals = document.querySelectorAll(".goal") as NodeListOf<HTMLLIElement>;
 
-    for (let i = 0; i < $goals.length; i++) {
-      const goal = this.state.goals[i];
-      new GoalListItem($goals[i], { ...goal, title: this.finalGoal.ideas[i].name || "" });
-    }
+    $goals.forEach(($goal, index) => {
+      const goal = this.state.goals[index];
+
+      const namedIdeas = goal.ideas.filter(idea => {
+        return idea.name || this.finalGoal.ideas[goal.id].name;
+      })
+      const isEmptyGoal = namedIdeas.length === 0;
+
+      new GoalListItem($goal, {
+        ...goal,
+        title: this.finalGoal.ideas[index].name || "",
+        disabled: isEmptyGoal
+      });
+    })
+
   }
 
   get finalGoal(): Goal {

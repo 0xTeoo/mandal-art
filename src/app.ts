@@ -40,16 +40,16 @@ class App extends BaseComponent<HTMLElement>{
   }
 
   setEvent() {
-    const imageDownloadButton = document.querySelector(".image-download-button")! as HTMLButtonElement;
+    const $imageDownloadButton = document.querySelector(".image-download-button")! as HTMLButtonElement;
 
-    imageDownloadButton.addEventListener("click", () => {
+    $imageDownloadButton.addEventListener("click", () => {
       this.handleImageDownloadButtonClick();
     });
   }
 
   async mounted() {
-    const goalSection = this.$target.querySelector('.goal-section')! as HTMLElement;
-    new GoalList(goalSection, { goals: [] });
+    const $goalSection = this.$target.querySelector('.goal-section')! as HTMLElement;
+    new GoalList($goalSection, { goals: [] });
   }
 
   handleImageDownloadButtonClick() {

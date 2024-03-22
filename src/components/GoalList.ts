@@ -1,8 +1,7 @@
 import { BaseComponent } from '../core/Component';
 import { Goal, Idea } from '../utils/types';
 import { GoalListItem } from '../components/GoalListItem';
-
-const CENTRAL_INDEX = 4;
+import { CENTRAL_INDEX } from '../utils/constants';
 
 type GoalListState = {
   goals: Goal[]

@@ -3,8 +3,6 @@ import { BaseComponent } from './core/Component';
 import { GoalList } from './components/GoalList';
 import downloadIcon from './images/download.svg';
 
-export const MY_USER_ID = "2ZERQRUJZ4fUoI7Gm9LX00aMWub2";
-
 const HEADER_TITLE = "MANDAL_ART"
 const HEADER_DESCRIPTION = "꿈과 목표를 시각화하여 실현에 이르게 하는 첫 걸음, </br>당신만의 맞춤형 만다라트 계획표로 일상에 변화를 주세요."
 

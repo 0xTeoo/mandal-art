@@ -4,13 +4,13 @@
 - 가장 큰 목표를 세우고 이에 대한 해결점, 아이디어, 생각들을 Who, Why, What, Where, When을 통해 확산해 나가는 형태이다.
 - 미국 메이저 리그에서 활약 중인 오타니 쇼헤이 선수가 학창 시절 때 작성한 계획표로 유명
 
-  <img src="https://res.cloudinary.com/dr4ka7tze/image/upload/v1711088441/mandal_art3_y5qzbh.png" width="300"/>
+  <img src="https://res.cloudinary.com/dr4ka7tze/image/upload/v1711088441/mandal_art3_y5qzbh.png" width="400"/>
 
 <br />
 
 ## 미리 보기
 
-<img src="https://res.cloudinary.com/dr4ka7tze/image/upload/v1711088004/wm08ncjb9o6033wbedlx.png" width="400"/>
+<img src="https://res.cloudinary.com/dr4ka7tze/image/upload/v1711088004/wm08ncjb9o6033wbedlx.png" width="500"/>
 
 <br />
 

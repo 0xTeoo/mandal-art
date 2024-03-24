@@ -5,7 +5,7 @@
   "author": "mooon3356 <mooon3356@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "watch": "webpack -w",
+    "dev": "webpack -w",
     "build": "webpack"
   },
   "devDependencies": {

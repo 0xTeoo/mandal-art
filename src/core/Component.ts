@@ -82,7 +82,6 @@ function updateElement(parent, newNode, oldNode) {
 // @ts-ignore
 function updateAttributes(oldNode, newNode) {
   for (const { name, value } of [...newNode.attributes]) {
-    console.log(name, value);
     if (value === oldNode.getAttribute(name)) continue;
     oldNode.setAttribute(name, value);
   }

@@ -16,4 +16,6 @@
 
 ## 사용한 기술
 
-Typescript, SCSS, Webpack
+- Typescript -> Developed a Single Page Application (SPA) website using pure TypeScript for learning purposes.
+- SCSS
+- Webpack
